@@ -1,0 +1,186 @@
+/* -- MEDIA QUERIES -- */
+
+// CALL MIXIN IN ACTION
+
+@include wider {
+	
+	h1 {
+		line-height: 3.5rem;
+		font-size: 2rem;
+	}
+	
+        
+	
+	/* -- FIRST DIV -- */
+	.first {
+        ul { 
+            margin: 0 0 1rem 0;
+            border: none;
+            
+            li {
+                display: inline;
+                
+                a {
+                    display: inline;
+                    font-size: 1.2rem;
+                    padding: 0 1rem;
+                    border: none;
+                    background-color: $links-bg-default;
+                    border-right: 1px solid #CCD;
+                    
+                    &:hover {
+                        background-color: $links-bg-default;
+                        border-bottom: none;
+                        color: $links-a-hover;
+                        text-shadow: none;
+                    }
+                }
+                
+                &:first-of-type a { /* access the first <li> */
+                    color: $links-highlight;
+                    padding: 0 1rem 0 0;
+                }
+                &:nth-of-type(6) a {
+                    border-right: none;
+                }
+            }
+        }
+        h1 {
+            margin: 1.5rem 2rem 1.5rem 0;
+        }
+    }
+	
+	
+	
+	/* -- SECOND DIV -- */
+	.bg-people {
+        a {
+		display: inline-block;
+		color: $links-bg-default;
+		text-decoration: none;
+		padding: 1rem 2rem;
+		margin: 0 1rem 0 0;
+		border: 1px solid $links-bg-default;
+		background-color: $links-a-default;
+		transition: background-color 0.5s ease, border 0.5s ease;
+        
+            /*parent selector:*/
+            &:hover {
+                background-color: $links-hover-border;
+                border: 1px solid $links-hover-border;
+            }
+        }
+	}
+
+	
+	
+	/* -- THIRD DIV -- */
+	.bg-gold {
+		padding: 0;
+        
+        ul::after { /* clear <li> floated left */
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        ul {
+            li {
+                width: 25%; 
+                float: left;
+                text-align: center;
+                border: none;
+                
+                a {
+                    background-color: transparent;
+                    text-decoration: none;
+                    border: none;
+                    
+                    /*parent selector:*/
+                    &:hover span:first-child { /* when <a> that belongs to .bg-gold is hovered ... */
+                        border: 4px solid $links-ul-border;
+                    }
+                    
+                    /*parent selector:*/
+                    &:hover span:last-child { /* when <a> that belongs to .bg-gold is hovered, color the text of second <span> that belongs to <a> to darkgoldenrod */
+                        color: $links-ul-border;
+                    }
+                    
+                    span:first-child { 
+                        border: 4px solid $links-bg-default;
+                    }
+                }
+                
+                span {
+                    display: block;
+                    
+                    /*parent selector:*/
+                    &:first-child { /* this span holds the svg image - set to white bg and round shape */
+                        padding: 1.5rem 0 0 0;
+                        margin: 2rem auto 1rem auto;
+                        width: 5.5rem;
+                        height: 5.5rem;
+                        border-radius: 45px;
+                        background-color: $links-bg-default;
+                    }
+                    
+                    /*parent selector:*/
+                    &:last-child {
+                        margin: 0 auto 2rem auto;
+                    }
+                }
+            }
+        }
+	}
+	
+    
+	
+	/* -- FOURTH DIV -- */
+	.second {
+        ul {
+            li {
+                width: 25%;
+            }
+        }
+        
+        .names {
+            margin: 0.5rem 0;
+        }
+        
+        p {
+            width: 50%;
+            float: left;
+        }
+        
+        /*parent selector:*/
+        &::after { /* clear <p> floated left */
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+	
+	
+	
+	/* -- FIFTH DIV -- */
+	.bg-black {
+        .container {
+            width: 50%;
+            float: left;
+            padding: 0 2rem 0 0;
+            
+            img {
+                width: 80%;
+            }
+        }
+    }
+    
+	.box::after { /* clear <div class="container"> floated left */
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.form-box {
+		padding: 0.5rem;
+	}
+}
