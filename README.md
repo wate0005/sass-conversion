@@ -1,2 +1,0 @@
-# sass
-head-start files
